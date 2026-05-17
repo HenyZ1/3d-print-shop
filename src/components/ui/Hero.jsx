@@ -1,13 +1,15 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, Suspense } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowRight, Play, RotateCcw, Layers, Box, Droplets, Wrench } from 'lucide-react'
+import { ArrowRight, Play, RotateCcw, Box, Droplets } from 'lucide-react'
 import HeroScene from '../three/HeroScene'
 
 const models = [
   { id: 'vase', label: 'Vazo', icon: '🏺' },
   { id: 'helmet', label: 'Kask', icon: '⛑️' },
-  { id: 'gear', label: 'Disli', icon: '⚙️' },
-  { id: 'figure', label: 'Figur', icon: '🧑' },
+  { id: 'dragon', label: 'Ejderha', icon: '🐉' },
+  { id: 'brain', label: 'Beyin', icon: '🧠' },
+  { id: 'avocado', label: 'Avokado', icon: '🥑' },
+  { id: 'duck', label: 'Ordek', icon: '🦆' },
 ]
 
 const materials = [
@@ -18,34 +20,17 @@ const materials = [
   { id: 'black', label: 'Siyah', color: '#1a1a2e' },
 ]
 
+function LoadingSpinner() {
+  return (
+    <div className="absolute inset-0 flex items-center justify-center">
+      <div className="w-10 h-10 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+    </div>
+  )
+}
+
 export default function Hero() {
   const [activeModel, setActiveModel] = useState('vase')
   const [material, setMaterial] = useState('pla')
-  const [printing, setPrinting] = useState(false)
-  const [clipY, setClipY] = useState(10)
-  const animRef = useRef(null)
-
-  const startPrint = () => {
-    if (printing) return
-    setPrinting(true)
-    setClipY(0)
-    let y = 0
-    const tick = () => {
-      y += 0.02
-      setClipY(y)
-      if (y < 2) {
-        animRef.current = requestAnimationFrame(tick)
-      } else {
-        setClipY(10)
-        setPrinting(false)
-      }
-    }
-    animRef.current = requestAnimationFrame(tick)
-  }
-
-  useEffect(() => {
-    return () => { if (animRef.current) cancelAnimationFrame(animRef.current) }
-  }, [])
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden bg-grid">
@@ -112,7 +97,9 @@ export default function Hero() {
           >
             {/* 3D Viewer */}
             <div className="relative w-full h-[480px] rounded-3xl overflow-hidden glass" style={{ border: '1px solid rgba(108,60,233,0.2)' }}>
-              <HeroScene activeModel={activeModel} material={material} clipY={clipY} />
+              <Suspense fallback={<LoadingSpinner />}>
+                <HeroScene activeModel={activeModel} material={material} />
+              </Suspense>
 
               {/* Drag hint */}
               <div className="absolute top-4 right-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-sm text-[11px] text-text-secondary">
@@ -135,22 +122,6 @@ export default function Hero() {
                   </div>
                 </motion.div>
               </AnimatePresence>
-
-              {/* Print animation button */}
-              <button
-                onClick={startPrint}
-                disabled={printing || activeModel !== 'vase'}
-                className={`absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold font-heading transition-all ${
-                  printing
-                    ? 'bg-accent/20 text-accent border border-accent/30 cursor-wait'
-                    : activeModel === 'vase'
-                      ? 'bg-primary/20 text-primary-light border border-primary/30 hover:bg-primary/30 cursor-pointer'
-                      : 'bg-white/5 text-text-secondary border border-border cursor-not-allowed opacity-50'
-                }`}
-              >
-                <Layers size={15} />
-                {printing ? 'Basiliyor...' : 'Baski Simulasyonu'}
-              </button>
             </div>
 
             {/* Controls below the viewer */}
@@ -160,12 +131,12 @@ export default function Hero() {
                 <span className="text-[11px] text-text-secondary uppercase tracking-widest w-16 shrink-0">
                   <Box size={12} className="inline mr-1 mb-0.5" />Urun
                 </span>
-                <div className="flex gap-2 flex-1">
+                <div className="flex gap-1.5 flex-1 flex-wrap">
                   {models.map((m) => (
                     <button
                       key={m.id}
-                      onClick={() => { setActiveModel(m.id); setClipY(10); setPrinting(false); if (animRef.current) cancelAnimationFrame(animRef.current); }}
-                      className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${
+                      onClick={() => setActiveModel(m.id)}
+                      className={`flex items-center justify-center gap-1 px-2.5 py-2 rounded-lg text-xs font-medium transition-all ${
                         activeModel === m.id
                           ? 'glass-strong glow-primary text-text-primary'
                           : 'bg-surface-light border border-border text-text-secondary hover:border-primary/40'
