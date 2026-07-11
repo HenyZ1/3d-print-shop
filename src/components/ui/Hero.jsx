@@ -1,182 +1,139 @@
-import { useState, Suspense } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowRight, Play, RotateCcw, Box, Droplets } from 'lucide-react'
-import HeroScene from '../three/HeroScene'
+import { motion } from 'framer-motion'
+import { ArrowRight, Sparkles, MapPin, Swords, Gift, Building2, Wrench } from 'lucide-react'
 
-const models = [
-  { id: 'vase', label: 'Vazo', icon: '🏺' },
-  { id: 'helmet', label: 'Kask', icon: '⛑️' },
-  { id: 'dragon', label: 'Ejderha', icon: '🐉' },
-  { id: 'brain', label: 'Beyin', icon: '🧠' },
-  { id: 'avocado', label: 'Avokado', icon: '🥑' },
-  { id: 'duck', label: 'Ordek', icon: '🦆' },
+const categories = [
+  { icon: Swords, label: 'DnD / FRP Figür', href: '#services' },
+  { icon: Gift, label: 'Kişiye Özel', href: '#services' },
+  { icon: Building2, label: 'Mimari Maket', href: '#services' },
+  { icon: Wrench, label: 'Sanayi Prototip', href: '#services' },
 ]
 
-const materials = [
-  { id: 'pla', label: 'PLA', color: '#6C3CE9' },
-  { id: 'resin', label: 'Resin', color: '#00E5FF' },
-  { id: 'metal', label: 'Metal', color: '#c0c0c0' },
-  { id: 'wood', label: 'Ahsap', color: '#c4873b' },
-  { id: 'black', label: 'Siyah', color: '#1a1a2e' },
+const stats = [
+  { value: '16K', label: 'MSLA' },
+  { value: '25μ', label: 'Katman' },
+  { value: '218mm', label: 'Hacim' },
+  { value: '48sa', label: 'Teslim' },
 ]
-
-function LoadingSpinner() {
-  return (
-    <div className="absolute inset-0 flex items-center justify-center">
-      <div className="w-10 h-10 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
-    </div>
-  )
-}
 
 export default function Hero() {
-  const [activeModel, setActiveModel] = useState('vase')
-  const [material, setMaterial] = useState('pla')
-
   return (
-    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden bg-grid">
-      <div className="absolute top-1/4 left-0 w-[450px] h-[450px] bg-primary/15 rounded-full blur-[150px] animate-pulse-glow" />
-      <div className="absolute bottom-1/3 right-1/3 w-80 h-80 bg-accent/10 rounded-full blur-[120px] animate-pulse-glow" style={{ animationDelay: '1.5s' }} />
+    <section id="hero" className="theme-dark bg-surface relative min-h-screen flex items-center overflow-hidden bg-grid-small">
+      {/* Atmospheric orbs */}
+      <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[150px] animate-pulse-glow" />
+      <div className="absolute bottom-1/4 right-1/4 w-[450px] h-[450px] bg-accent/12 rounded-full blur-[130px] animate-pulse-glow" style={{ animationDelay: '1.5s' }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-[350px] h-[350px] bg-accent-warm/8 rounded-full blur-[120px] animate-pulse-glow" style={{ animationDelay: '3s' }} />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-28 pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-surface to-transparent z-10" />
 
-          {/* Left — text */}
-          <div className="relative z-20">
-            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
-              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass mb-8 text-sm">
-                <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                <span className="text-text-secondary">Yeni nesil 3D baski teknolojisi</span>
-              </div>
-            </motion.div>
-
-            <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading leading-[1.1] mb-6"
-            >
-              Hayallerinizi{' '}<span className="text-gradient">3D</span><br />
-              Olarak<br />Basiyoruz
-            </motion.h1>
-
-            <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-text-secondary text-lg md:text-xl max-w-lg mb-10 leading-relaxed"
-            >
-              Profesyonel 3D baski hizmetleri ile fikirlerinizi gercege donusturun.
-              Yuksek kalite, hizli teslimat ve sinirsize yakin malzeme secenekleri.
-            </motion.p>
-
-            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.8 }}
-              className="flex flex-col sm:flex-row items-start gap-4"
-            >
-              <button className="btn-primary text-base flex items-center gap-2 px-8 py-4">
-                Urunleri Kesfet <ArrowRight size={18} />
-              </button>
-              <button className="btn-outline text-base flex items-center gap-2 px-8 py-4">
-                <Play size={18} className="text-accent" /> Nasil Calisir?
-              </button>
-            </motion.div>
-
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1.2 }}
-              className="flex items-center gap-8 mt-14 flex-wrap"
-            >
-              {[
-                { value: '10K+', label: 'Mutlu Musteri' },
-                { value: '50+', label: 'Malzeme Cesidi' },
-                { value: '0.05mm', label: 'Hassasiyet' },
-                { value: '24 Saat', label: 'Hizli Teslimat' },
-              ].map((stat, i) => (
-                <div key={i} className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold font-heading text-gradient">{stat.value}</div>
-                  <div className="text-text-secondary text-xs mt-1">{stat.label}</div>
-                </div>
-              ))}
-            </motion.div>
+      <div className="relative z-20 max-w-4xl mx-auto px-6 w-full pt-28 pb-24 text-center">
+        {/* Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="flex justify-center"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-strong mb-8 text-sm border border-primary/20">
+            <MapPin size={14} className="text-accent" />
+            <span className="text-text-secondary">Manisa & İzmir</span>
+            <span className="text-text-muted">·</span>
+            <span className="text-accent font-semibold">16K MSLA</span>
+            <span className="text-text-muted">·</span>
+            <span className="text-text-secondary">25μ detay</span>
           </div>
+        </motion.div>
 
-          {/* Right — interactive 3D showcase */}
-          <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, delay: 0.5 }}
-            className="relative hidden lg:flex flex-col items-center"
-          >
-            {/* 3D Viewer */}
-            <div className="relative w-full h-[480px] rounded-3xl overflow-hidden glass" style={{ border: '1px solid rgba(108,60,233,0.2)' }}>
-              <Suspense fallback={<LoadingSpinner />}>
-                <HeroScene activeModel={activeModel} material={material} />
-              </Suspense>
+        {/* Headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.25 }}
+          className="text-5xl md:text-6xl lg:text-7xl font-bold font-heading leading-[1.05] mb-6 tracking-tight"
+        >
+          Figürler, maketler,{' '}
+          <span className="relative inline-block">
+            <span className="text-gradient">prototipler</span>
+            <motion.span
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 1, delay: 1 }}
+              className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent rounded-full origin-left"
+            />
+          </span>
+          <br />
+          <span className="text-gradient-soft">mikron seviyede.</span>
+        </motion.h1>
 
-              {/* Drag hint */}
-              <div className="absolute top-4 right-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-sm text-[11px] text-text-secondary">
-                <RotateCcw size={12} /> Surukleyerek dondur
-              </div>
+        {/* Subtext */}
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-text-secondary text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
+        >
+          DnD/FRP minyatür, kişiye özel masaüstü figür, mimari maket ve sanayi prototipi —
+          <span className="text-text-primary font-medium"> Saturn 4 Ultra</span> ile pürüzsüz yüzeyli SLA reçine baskı.
+        </motion.p>
 
-              {/* Active model label */}
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeModel}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 10 }}
-                  className="absolute top-4 left-4 px-4 py-2 rounded-xl bg-black/40 backdrop-blur-sm"
-                >
-                  <div className="text-[11px] text-text-secondary uppercase tracking-widest">Model</div>
-                  <div className="text-sm font-semibold font-heading">
-                    {models.find(m => m.id === activeModel)?.icon}{' '}
-                    {models.find(m => m.id === activeModel)?.label}
-                  </div>
-                </motion.div>
-              </AnimatePresence>
+        {/* CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.55 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
+        >
+          <a href="#order" className="btn-primary text-base flex items-center gap-2 px-8 py-4 group">
+            Fotoğraf Yükle, Teklif Al
+            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+          </a>
+          <a href="#gallery" className="btn-outline text-base flex items-center gap-2 px-8 py-4 group">
+            <div className="w-7 h-7 rounded-full bg-accent/20 flex items-center justify-center group-hover:bg-accent/30 transition-colors">
+              <Sparkles size={12} className="text-accent" />
             </div>
+            Örnekleri Gör
+          </a>
+        </motion.div>
 
-            {/* Controls below the viewer */}
-            <div className="w-full mt-4 flex flex-col gap-3">
-              {/* Model selector */}
-              <div className="flex items-center gap-2">
-                <span className="text-[11px] text-text-secondary uppercase tracking-widest w-16 shrink-0">
-                  <Box size={12} className="inline mr-1 mb-0.5" />Urun
-                </span>
-                <div className="flex gap-1.5 flex-1 flex-wrap">
-                  {models.map((m) => (
-                    <button
-                      key={m.id}
-                      onClick={() => setActiveModel(m.id)}
-                      className={`flex items-center justify-center gap-1 px-2.5 py-2 rounded-lg text-xs font-medium transition-all ${
-                        activeModel === m.id
-                          ? 'glass-strong glow-primary text-text-primary'
-                          : 'bg-surface-light border border-border text-text-secondary hover:border-primary/40'
-                      }`}
-                    >
-                      <span>{m.icon}</span> {m.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
+        {/* Category quick-chips */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="flex flex-wrap items-center justify-center gap-2.5 mb-14"
+        >
+          {categories.map((cat) => {
+            const Icon = cat.icon
+            return (
+              <a
+                key={cat.label}
+                href={cat.href}
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full glass border border-border/60 text-sm text-text-secondary hover:text-text-primary hover:border-primary/40 transition-all"
+              >
+                <Icon size={15} className="text-primary-light" />
+                {cat.label}
+              </a>
+            )
+          })}
+        </motion.div>
 
-              {/* Material selector */}
-              <div className="flex items-center gap-2">
-                <span className="text-[11px] text-text-secondary uppercase tracking-widest w-16 shrink-0">
-                  <Droplets size={12} className="inline mr-1 mb-0.5" />Malzeme
-                </span>
-                <div className="flex gap-1.5 flex-1">
-                  {materials.map((m) => (
-                    <button
-                      key={m.id}
-                      onClick={() => setMaterial(m.id)}
-                      className={`flex-1 flex items-center justify-center gap-1.5 px-2 py-2.5 rounded-xl text-xs font-medium transition-all ${
-                        material === m.id
-                          ? 'glass-strong glow-primary text-text-primary'
-                          : 'bg-surface-light border border-border text-text-secondary hover:border-primary/40'
-                      }`}
-                    >
-                      <span className="w-3 h-3 rounded-full border border-white/20" style={{ background: m.color }} />
-                      {m.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
+        {/* Stats */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.9 }}
+          className="grid grid-cols-4 gap-4 max-w-2xl mx-auto pt-8 border-t border-border/40"
+        >
+          {stats.map((stat, i) => (
+            <div key={i} className="text-center">
+              <div className="text-2xl md:text-3xl font-bold font-heading text-gradient tracking-tight">{stat.value}</div>
+              <div className="text-text-secondary text-xs mt-1 uppercase tracking-wider">{stat.label}</div>
             </div>
-          </motion.div>
-
-        </div>
+          ))}
+        </motion.div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-surface to-transparent z-30" />
+      {/* Bottom fade into light section */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-surface to-transparent z-10 pointer-events-none" />
     </section>
   )
 }

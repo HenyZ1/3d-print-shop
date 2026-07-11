@@ -1,37 +1,34 @@
 import { motion } from 'framer-motion'
-import { Star, Quote } from 'lucide-react'
+import { Eye, ShieldCheck, Lock } from 'lucide-react'
 
-const testimonials = [
+// Honest commitments a new workshop can genuinely make — no fabricated
+// reviews or ratings.
+const promises = [
   {
-    name: 'Ahmet Yilmaz',
-    role: 'Mimar',
-    text: 'Maket projelerimde PrintForge ile calismak buyuk bir ayricalik. Detay kalitesi ve hiz konusunda beklentilerimin cok uzerinde sonuclar aldim.',
-    rating: 5,
-    avatar: 'AY',
+    icon: Eye,
+    title: 'Önce Onay, Sonra Baskı',
+    text: 'Modelini ve baskı ayarlarını onaylamadan üretime geçmeyiz. Boyut, renk ve detayı net konuşur, sürpriz yaşatmayız.',
     color: '#6C3CE9',
   },
   {
-    name: 'Elif Kaya',
-    role: 'Endustriyel Tasarimci',
-    text: 'Prototip uretim surecimizi tamamen degistirdiler. Artik fikirlerimizi cok daha hizli test edebiliyoruz. Harika malzeme cesitliligi!',
-    rating: 5,
-    avatar: 'EK',
-    color: '#00E5FF',
+    icon: ShieldCheck,
+    title: 'Kalite Garantisi',
+    text: 'Baskı hatası bizden kaynaklıysa ücretsiz yeniden basarız. Her parça paketlenmeden önce tek tek kontrol edilir.',
+    color: '#0E9BB8',
   },
   {
-    name: 'Mehmet Demir',
-    role: 'Hobi Meraklisi',
-    text: 'Ilk 3D baski deneyimimdi ve sonuc muhtesemdi. Musteri hizmetleri her asamada yardimci oldu. Kesinlikle tavsiye ederim!',
-    rating: 5,
-    avatar: 'MD',
-    color: '#FF6B35',
+    icon: Lock,
+    title: 'Gizlilik & Güven',
+    text: 'Özel tasarımların, dosyaların ve prototiplerin bizimle güvende. İzin vermeden hiçbir modeli paylaşmaz, çoğaltmayız.',
+    color: '#F97316',
   },
 ]
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 px-6 relative bg-surface-light">
-      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-primary/8 rounded-full blur-[120px]" />
+    <section id="guarantee" className="cv-auto py-24 px-6 relative bg-surface-light overflow-hidden">
+      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[120px]" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-accent/8 rounded-full blur-[120px]" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
@@ -41,52 +38,56 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-accent text-sm font-semibold uppercase tracking-widest">Yorumlar</span>
-          <h2 className="text-4xl md:text-5xl font-bold font-heading mt-3 mb-4">
-            Musterilerimiz <span className="text-gradient">Ne Diyor?</span>
+          <span className="badge badge-accent">Güvence</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mt-5 mb-4 tracking-tight">
+            Sana <span className="text-gradient">Sözümüz</span>
           </h2>
           <p className="text-text-secondary max-w-xl mx-auto text-lg">
-            Binlerce mutlu musterimizden bazilari.
+            Yeni bir atölyeyiz ama işimizi ciddiye alıyoruz. Her siparişte sözümüz net.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="glass rounded-2xl p-8 relative group hover:glow-primary transition-all duration-500"
-            >
-              <Quote size={40} className="absolute top-6 right-6 text-primary/10" />
-
-              <div className="flex items-center gap-1 mb-4">
-                {Array.from({ length: testimonial.rating }).map((_, i) => (
-                  <Star key={i} size={16} className="text-accent-warm fill-accent-warm" />
-                ))}
-              </div>
-
-              <p className="text-text-secondary leading-relaxed mb-6">
-                "{testimonial.text}"
-              </p>
-
-              <div className="flex items-center gap-3 pt-4 border-t border-border">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {promises.map((p, index) => {
+            const Icon = p.icon
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="glass-card rounded-3xl p-8 relative group hover:glow-primary transition-all duration-500 lift"
+              >
                 <div
-                  className="w-11 h-11 rounded-full flex items-center justify-center text-sm font-bold text-white"
-                  style={{ background: `linear-gradient(135deg, ${testimonial.color}, ${testimonial.color}80)` }}
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6"
+                  style={{ background: `${p.color}15`, border: `1px solid ${p.color}28` }}
                 >
-                  {testimonial.avatar}
+                  <Icon size={26} style={{ color: p.color }} />
                 </div>
-                <div>
-                  <div className="font-semibold text-sm">{testimonial.name}</div>
-                  <div className="text-text-secondary text-xs">{testimonial.role}</div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+                <h3 className="text-xl font-bold font-heading mb-3">{p.title}</h3>
+                <p className="text-text-secondary leading-relaxed">{p.text}</p>
+              </motion.div>
+            )
+          })}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="mt-12 text-center"
+        >
+          <a
+            href="https://instagram.com/micronforge3d"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 text-accent hover:text-accent/80 font-semibold transition-colors"
+          >
+            Gerçek baskılarımızı Instagram'da gör → @micronforge3d
+          </a>
+        </motion.div>
       </div>
     </section>
   )

@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Aşırı büyük STL dosyaları (repo dışı — küçültülmüş versiyonları eklenecek)
+public/models/stl/gandalf.stl
+public/models/stl/portrait.stl
