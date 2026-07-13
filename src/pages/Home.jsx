@@ -1,3 +1,4 @@
+import usePageSeo from '../hooks/usePageSeo'
 import ScrollProgress from '../components/ui/ScrollProgress'
 import Navbar from '../components/ui/Navbar'
 import Hero from '../components/ui/Hero'
@@ -17,6 +18,13 @@ import Footer from '../components/ui/Footer'
 import WhatsAppFab from '../components/ui/WhatsAppFab'
 
 export default function Home() {
+  usePageSeo({
+    title: 'MicronForge | Manisa & İzmir SLA Reçine 3D Baskı — Figür, Maket, Prototip',
+    description:
+      'Manisa & İzmir bölgesinde profesyonel SLA reçine 3D baskı. DnD/FRP minyatür, kişiye özel figür, mimari maket ve sanayi prototip. 16K MSLA, 25 mikron detay, 48 saatte teslim. Fotoğraf gönder, teklif al.',
+    path: '/',
+  })
+
   return (
     <div className="min-h-screen bg-surface">
       <ScrollProgress />
