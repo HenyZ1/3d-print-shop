@@ -1,21 +1,23 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, Printer, MessageCircle, Sparkles } from 'lucide-react'
 
 const navLinks = [
-  { label: 'Anasayfa', href: '#hero' },
-  { label: 'Hizmetler', href: '#services' },
-  { label: 'Mağaza', href: '#magaza' },
-  { label: 'Fiyat', href: '#pricing' },
-  { label: 'Reçineler', href: '#materials' },
-  { label: 'SSS', href: '#faq' },
+  { label: 'Anasayfa', href: '/#hero' },
+  { label: 'Hizmetler', href: '/#services' },
+  { label: 'Mağaza', href: '/magaza', route: true },
+  { label: 'Fiyat', href: '/#pricing' },
+  { label: 'Reçineler', href: '/#materials' },
+  { label: 'SSS', href: '/#faq' },
 ]
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [cartCount] = useState(3)
   const [activeSection, setActiveSection] = useState('hero')
+  const location = useLocation()
+  const onShop = location.pathname === '/magaza'
 
   useEffect(() => {
     let ticking = false
@@ -32,10 +34,14 @@ export default function Navbar() {
   }, [])
 
   useEffect(() => {
-    const sections = navLinks.map((l) => l.href.replace('#', ''))
+    // Section spy yalnızca ana sayfada anlamlı.
+    if (onShop) return
+    const ids = navLinks
+      .filter((l) => l.href.includes('#'))
+      .map((l) => l.href.split('#')[1])
     const observers = []
 
-    sections.forEach((id) => {
+    ids.forEach((id) => {
       const el = document.getElementById(id)
       if (!el) return
       const observer = new IntersectionObserver(
@@ -51,7 +57,23 @@ export default function Navbar() {
     })
 
     return () => observers.forEach((o) => o.disconnect())
-  }, [])
+  }, [onShop])
+
+  const isLinkActive = (link) => {
+    if (link.route) return onShop
+    return !onShop && activeSection === link.href.split('#')[1]
+  }
+
+  const renderLink = (link, className, onClick) =>
+    link.route ? (
+      <Link key={link.href} to={link.href} className={className} onClick={onClick}>
+        {link.label}
+      </Link>
+    ) : (
+      <a key={link.href} href={link.href} className={className} onClick={onClick}>
+        {link.label}
+      </a>
+    )
 
   return (
     <motion.nav
@@ -65,7 +87,7 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
-        <a href="#hero" className="flex items-center gap-3 group flex-shrink-0">
+        <Link to="/" className="flex items-center gap-3 group flex-shrink-0">
           <div className="relative">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary via-primary-light to-accent flex items-center justify-center group-hover:shadow-lg group-hover:shadow-primary/40 transition-all duration-500 group-hover:scale-105">
               <Printer size={20} className="text-white" />
@@ -75,20 +97,16 @@ export default function Navbar() {
           <span className="text-xl font-bold font-heading tracking-tight">
             Micron<span className="text-gradient">Forge</span>
           </span>
-        </a>
+        </Link>
 
         <div className="hidden lg:flex items-center gap-1 bg-surface-light px-2 py-1.5 rounded-full border border-border/60">
           {navLinks.map((link) => {
-            const id = link.href.replace('#', '')
-            const isActive = activeSection === id
+            const isActive = isLinkActive(link)
+            const className = `relative px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+              isActive ? 'text-text-primary' : 'text-text-secondary hover:text-text-primary'
+            }`
             return (
-              <a
-                key={link.href}
-                href={link.href}
-                className={`relative px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  isActive ? 'text-text-primary' : 'text-text-secondary hover:text-text-primary'
-                }`}
-              >
+              <span key={link.href} className="relative">
                 {isActive && (
                   <motion.span
                     layoutId="navActive"
@@ -96,8 +114,8 @@ export default function Navbar() {
                     transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                   />
                 )}
-                <span className="relative">{link.label}</span>
-              </a>
+                {renderLink(link, className)}
+              </span>
             )
           })}
         </div>
@@ -113,7 +131,7 @@ export default function Navbar() {
             <MessageCircle size={20} className="text-text-secondary group-hover:text-green-400 transition-colors" />
           </a>
 
-          <a href="#order" className="btn-primary hidden sm:flex items-center gap-2 text-sm py-2.5 px-5">
+          <a href="/#order" className="btn-primary hidden sm:flex items-center gap-2 text-sm py-2.5 px-5">
             <Sparkles size={14} />
             Teklif Al
           </a>
@@ -136,18 +154,15 @@ export default function Navbar() {
             className="lg:hidden glass-strong border-t border-border overflow-hidden"
           >
             <div className="px-6 py-4 flex flex-col gap-1">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-text-secondary hover:text-text-primary hover:bg-white/5 transition-colors py-3 px-4 rounded-xl"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) =>
+                renderLink(
+                  link,
+                  'text-text-secondary hover:text-text-primary hover:bg-white/5 transition-colors py-3 px-4 rounded-xl',
+                  () => setMobileOpen(false)
+                )
+              )}
               <a
-                href="#order"
+                href="/#order"
                 onClick={() => setMobileOpen(false)}
                 className="btn-primary w-full text-sm py-3 mt-3 flex items-center justify-center gap-2"
               >

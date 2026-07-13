@@ -3,7 +3,7 @@ import { Printer, Mail, Phone, MapPin, ArrowRight } from 'lucide-react'
 const footerLinks = {
   'Hizmetler': ['DnD / FRP Figür', 'Kişiye Özel', 'Mimari Maket', 'Sanayi Prototip', 'Toplu Sipariş'],
   'Reçine': ['Standart', 'Tough (ABS-like)', 'Renkli', 'Şeffaf', 'Gri / Siyah'],
-  'Destek': ['SSS', 'Fiyat Teklifi', 'Kargo Bilgileri', 'Galeri', 'Gizlilik'],
+  'Destek': ['SSS', 'Fiyat Teklifi', 'Kargo Bilgileri', 'Mağaza', 'Gizlilik'],
 }
 
 const InstagramIcon = (p) => (
@@ -32,7 +32,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-20 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           <div className="lg:col-span-2">
-            <a href="#hero" className="flex items-center gap-3 mb-5 group w-fit">
+            <a href="/#hero" className="flex items-center gap-3 mb-5 group w-fit">
               <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-primary via-primary-light to-accent flex items-center justify-center group-hover:shadow-lg group-hover:shadow-primary/40 transition-shadow">
                 <Printer size={22} className="text-white" />
               </div>
