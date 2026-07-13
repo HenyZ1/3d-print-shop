@@ -252,6 +252,15 @@
   .animate-fade-up { animation: fade-up 0.8s ease-out forwards; }
   .animate-gradient { animation: gradient-shift 8s ease infinite; background-size: 200% 200%; }
 
+  /* Hareket azaltma tercihi: sürekli dönen dekoratif animasyonları kapat */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-pulse-glow,
+    .animate-marquee,
+    .animate-marquee-slow,
+    .animate-shimmer,
+    .animate-gradient { animation: none !important; }
+  }
+
   /* ---------- Buttons ---------- */
   .btn-primary {
     background: linear-gradient(135deg, #6C3CE9 0%, #8B5CF6 100%);

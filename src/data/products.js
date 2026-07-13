@@ -1,0 +1,195 @@
+// Mağaza ürün kataloğu — hem liste (Shop) hem ürün detay sayfası bunu kullanır.
+// Fiyatlar standart boyut/tek renk içindir; boyut, adet ve boyama ile değişir.
+export const SITE = 'https://micronforge.shop'
+
+export const products = [
+  {
+    id: 'buz-ejderha',
+    name: 'Buz Ejderhası',
+    desc: 'Dev boyut, dikenli kristal gövde — vitrinlik koleksiyon parçası.',
+    category: 'dekor',
+    categoryLabel: 'Kristal Sanat',
+    material: 'Şeffaf Reçine',
+    price: 1850,
+    featured: true,
+    photos: ['/shop/urun-02.jpg'],
+  },
+  {
+    id: 'anka-kusu',
+    name: 'Kristal Anka Kuşu',
+    desc: 'Açık kanatlı, ince tüy detaylı büyük dekoratif heykel.',
+    category: 'dekor',
+    categoryLabel: 'Kristal Sanat',
+    material: 'Şeffaf Reçine',
+    price: 1650,
+    featured: true,
+    photos: ['/shop/urun-03.jpg'],
+  },
+  {
+    id: 'kurt',
+    name: 'Low-Poly Kurt',
+    desc: 'Geometrik uluyan kurt, buzul görünümlü şeffaf reçine.',
+    category: 'dekor',
+    categoryLabel: 'Dekoratif',
+    material: 'Şeffaf Reçine',
+    price: 450,
+    photos: ['/shop/urun-01.jpg', '/shop/urun-10.jpg'],
+  },
+  {
+    id: 'kurukafa',
+    name: 'Anatomik Kurukafa',
+    desc: 'Gerçek oranlı kafatası, masaüstü dekoru — şeffaf reçine.',
+    category: 'dekor',
+    categoryLabel: 'Dekoratif',
+    material: 'Şeffaf Reçine',
+    price: 380,
+    photos: ['/shop/urun-05.jpg', '/shop/urun-04.jpg'],
+  },
+  {
+    id: 'boga',
+    name: 'Boğa Heykeli',
+    desc: 'Wall Street tarzı saldıran boğa, metalik bronz kaplama.',
+    category: 'dekor',
+    categoryLabel: 'Dekoratif',
+    material: 'Metalik Boyalı',
+    price: 680,
+    photos: ['/shop/urun-15.jpg'],
+  },
+  {
+    id: 'atlas',
+    name: 'Atlas Heykeli',
+    desc: 'Dünyayı taşıyan Atlas — mitolojik, antik patine dekor.',
+    category: 'dekor',
+    categoryLabel: 'Dekoratif',
+    material: 'Boyalı Reçine',
+    price: 720,
+    photos: ['/shop/urun-21.jpg', '/shop/urun-23.jpg'],
+  },
+  {
+    id: 'hulk',
+    name: 'Hulk Figürü',
+    desc: 'El boyaması kaslı Hulk, ~20 cm sergi figürü.',
+    category: 'figur',
+    categoryLabel: 'Film & Oyun',
+    material: 'Boyalı Reçine',
+    price: 880,
+    photos: ['/shop/urun-18.jpg', '/shop/urun-19.jpg'],
+  },
+  {
+    id: 'spiderman',
+    name: 'Spider-Man Figürü',
+    desc: 'Poz veren, el boyaması Örümcek Adam figürü.',
+    category: 'figur',
+    categoryLabel: 'Film & Oyun',
+    material: 'Boyalı Reçine',
+    price: 750,
+    photos: ['/shop/urun-06.jpg', '/shop/urun-07.jpg'],
+  },
+  {
+    id: 'gandalf',
+    name: 'Beyaz Büyücü',
+    desc: 'Asalı beyaz büyücü, ince el boyama — LOTR koleksiyonu.',
+    category: 'figur',
+    categoryLabel: 'Film & Oyun',
+    material: 'Boyalı Reçine',
+    price: 720,
+    photos: ['/shop/urun-16.jpg'],
+  },
+  {
+    id: 'gollum',
+    name: 'Gollum',
+    desc: 'Kaya üzerinde Gollum / Sméagol, detaylı el boyama.',
+    category: 'figur',
+    categoryLabel: 'Film & Oyun',
+    material: 'Boyalı Reçine',
+    price: 560,
+    photos: ['/shop/urun-20.jpg'],
+  },
+  {
+    id: 'yoda',
+    name: 'Usta Yoda',
+    desc: 'Asasıyla Usta Yoda, zümrüt yeşili şeffaf reçine.',
+    category: 'figur',
+    categoryLabel: 'Film & Oyun',
+    material: 'Renkli Reçine',
+    price: 420,
+    photos: ['/shop/urun-12.jpg', '/shop/urun-13.jpg'],
+  },
+  {
+    id: 'grogu',
+    name: 'Grogu (Baby Yoda)',
+    desc: 'Sevimli Grogu minyatürü, yeşil şeffaf reçine.',
+    category: 'figur',
+    categoryLabel: 'Film & Oyun',
+    material: 'Renkli Reçine',
+    price: 220,
+    photos: ['/shop/urun-14.jpg', '/shop/urun-24.jpg'],
+  },
+  {
+    id: 'sirinler',
+    name: 'Şirinler Seti',
+    desc: '4 Şirin + mantar ev + Gargamel — 6 parça boyalı set.',
+    category: 'set',
+    categoryLabel: 'Set & Koleksiyon',
+    material: 'Boyalı Reçine',
+    price: 1250,
+    photos: ['/shop/urun-11.jpg', '/shop/urun-17.jpg'],
+  },
+  {
+    id: 'grogu-ikili',
+    name: 'Grogu İkili Set',
+    desc: 'İki farklı pozda Grogu — hediyelik ikili paket.',
+    category: 'set',
+    categoryLabel: 'Set & Koleksiyon',
+    material: 'Renkli Reçine',
+    price: 380,
+    photos: ['/shop/urun-22.jpg'],
+  },
+  {
+    id: 'ozel-figur',
+    name: 'Kişiye Özel Figür / Büst',
+    desc: 'Fotoğrafından 3D figür veya büst. Fiyat modele göre değişir.',
+    category: 'ozel',
+    categoryLabel: 'Kişiye Özel',
+    material: 'Boyalı Reçine',
+    price: null,
+    priceFrom: 300,
+    photos: ['/shop/urun-08.jpg', '/shop/urun-09.jpg'],
+  },
+]
+
+export const filters = [
+  { id: 'all', label: 'Tümü' },
+  { id: 'figur', label: 'Film & Oyun' },
+  { id: 'dekor', label: 'Dekoratif & Sanat' },
+  { id: 'set', label: 'Set & Koleksiyon' },
+  { id: 'ozel', label: 'Kişiye Özel' },
+]
+
+export const getProduct = (slug) => products.find((p) => p.id === slug)
+
+export const fmt = (n) => new Intl.NumberFormat('tr-TR').format(n)
+
+export const waOrder = (name) =>
+  `https://wa.me/905311034535?text=${encodeURIComponent(
+    `Merhaba! "${name}" ürününü sipariş vermek istiyorum. Fiyat ve teslim bilgisi alabilir miyim?`
+  )}`
+
+// Google zengin sonuçları için Product yapılandırılmış verisi.
+export const productJsonLd = (p) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: p.name,
+  image: p.photos.map((ph) => `${SITE}${ph}`),
+  description: p.desc,
+  category: p.categoryLabel,
+  brand: { '@type': 'Brand', name: 'MicronForge' },
+  offers: {
+    '@type': 'Offer',
+    price: p.price ?? p.priceFrom,
+    priceCurrency: 'TRY',
+    availability: 'https://schema.org/InStock',
+    url: `${SITE}/magaza/${p.id}`,
+    seller: { '@type': 'Organization', name: 'MicronForge' },
+  },
+})

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { ArrowRight, Sparkles, MapPin, Swords, Gift, Building2, Wrench } from 'lucide-react'
 
 const categories = [
@@ -18,10 +19,10 @@ const stats = [
 export default function Hero() {
   return (
     <section id="hero" className="theme-dark bg-surface relative min-h-screen flex items-center overflow-hidden bg-grid-small">
-      {/* Atmospheric orbs */}
-      <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[150px] animate-pulse-glow" />
-      <div className="absolute bottom-1/4 right-1/4 w-[450px] h-[450px] bg-accent/12 rounded-full blur-[130px] animate-pulse-glow" style={{ animationDelay: '1.5s' }} />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-[350px] h-[350px] bg-accent-warm/8 rounded-full blur-[120px] animate-pulse-glow" style={{ animationDelay: '3s' }} />
+      {/* Atmospheric orbs (statik — sürekli raster maliyetini önlemek için) */}
+      <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px]" />
+      <div className="absolute bottom-1/4 right-1/4 w-[450px] h-[450px] bg-accent/12 rounded-full blur-[110px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-[350px] h-[350px] bg-accent-warm/8 rounded-full blur-[100px]" />
 
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-surface to-transparent z-10" />
 
@@ -86,12 +87,12 @@ export default function Hero() {
             Fotoğraf Yükle, Teklif Al
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </a>
-          <a href="#gallery" className="btn-outline text-base flex items-center gap-2 px-8 py-4 group">
+          <Link to="/magaza" className="btn-outline text-base flex items-center gap-2 px-8 py-4 group">
             <div className="w-7 h-7 rounded-full bg-accent/20 flex items-center justify-center group-hover:bg-accent/30 transition-colors">
               <Sparkles size={12} className="text-accent" />
             </div>
-            Örnekleri Gör
-          </a>
+            Mağazayı Gör
+          </Link>
         </motion.div>
 
         {/* Category quick-chips */}
