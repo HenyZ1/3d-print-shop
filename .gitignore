@@ -26,3 +26,6 @@ dist-ssr
 # Aşırı büyük STL dosyaları (repo dışı — küçültülmüş versiyonları eklenecek)
 public/models/stl/gandalf.stl
 public/models/stl/portrait.stl
+
+# Ham ürün fotoğrafı arşivi (web-optimize edilmiş kopyalar public/shop/ altında)
+stl_photos/

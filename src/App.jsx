@@ -4,7 +4,7 @@ import Hero from './components/ui/Hero'
 import TrustBar from './components/ui/TrustBar'
 import Services from './components/ui/Services'
 import Process from './components/ui/Process'
-import Gallery from './components/ui/Gallery'
+import Shop from './components/ui/Shop'
 import Pricing from './components/ui/Pricing'
 import Materials from './components/ui/Materials'
 import Stats from './components/ui/Stats'
@@ -25,7 +25,7 @@ export default function App() {
       <TrustBar />
       <Services />
       <Process />
-      <Gallery />
+      <Shop />
       <Pricing />
       <Materials />
       <Stats />

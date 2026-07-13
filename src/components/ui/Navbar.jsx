@@ -5,7 +5,7 @@ import { Menu, X, Printer, MessageCircle, Sparkles } from 'lucide-react'
 const navLinks = [
   { label: 'Anasayfa', href: '#hero' },
   { label: 'Hizmetler', href: '#services' },
-  { label: 'Galeri', href: '#gallery' },
+  { label: 'Mağaza', href: '#magaza' },
   { label: 'Fiyat', href: '#pricing' },
   { label: 'Reçineler', href: '#materials' },
   { label: 'SSS', href: '#faq' },
