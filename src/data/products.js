@@ -10,7 +10,7 @@ export const products = [
     category: 'dekor',
     categoryLabel: 'Kristal Sanat',
     material: 'Şeffaf Reçine',
-    price: 1850,
+    price: 1480,
     featured: true,
     photos: ['/shop/urun-02.jpg'],
   },
@@ -21,7 +21,7 @@ export const products = [
     category: 'dekor',
     categoryLabel: 'Kristal Sanat',
     material: 'Şeffaf Reçine',
-    price: 1650,
+    price: 1320,
     featured: true,
     photos: ['/shop/urun-03.jpg'],
   },
@@ -32,7 +32,7 @@ export const products = [
     category: 'dekor',
     categoryLabel: 'Dekoratif',
     material: 'Şeffaf Reçine',
-    price: 300,
+    price: 240,
     photos: ['/shop/urun-01.jpg', '/shop/urun-10.jpg'],
   },
   {
@@ -42,7 +42,7 @@ export const products = [
     category: 'dekor',
     categoryLabel: 'Dekoratif',
     material: 'Renkli Reçine',
-    price: 300,
+    price: 240,
     photos: ['/shop/urun-31.jpg', '/shop/urun-32.jpg', '/shop/urun-33.jpg'],
   },
   {
@@ -52,7 +52,7 @@ export const products = [
     category: 'dekor',
     categoryLabel: 'Dekoratif',
     material: 'Renkli Reçine',
-    price: 260,
+    price: 210,
     photos: ['/shop/urun-28.jpg', '/shop/urun-27.jpg', '/shop/urun-34.jpg'],
   },
   {
@@ -62,7 +62,7 @@ export const products = [
     category: 'dekor',
     categoryLabel: 'Dekoratif',
     material: 'Renkli Reçine',
-    price: 250,
+    price: 200,
     photos: ['/shop/urun-26.jpg', '/shop/urun-37.jpg'],
   },
   {
@@ -72,7 +72,7 @@ export const products = [
     category: 'dekor',
     categoryLabel: 'Kristal Sanat',
     material: 'Şeffaf Reçine',
-    price: 240,
+    price: 190,
     photos: ['/shop/urun-35.jpg', '/shop/urun-36.jpg'],
   },
   {
@@ -82,7 +82,7 @@ export const products = [
     category: 'figur',
     categoryLabel: 'Film & Oyun',
     material: 'Renkli Reçine',
-    price: 220,
+    price: 180,
     photos: ['/shop/urun-29.jpg', '/shop/urun-30.jpg'],
   },
   {
@@ -92,7 +92,7 @@ export const products = [
     category: 'dekor',
     categoryLabel: 'Dekoratif',
     material: 'Renkli Reçine',
-    price: 150,
+    price: 120,
     photos: ['/shop/urun-25.jpg'],
   },
   {
@@ -102,7 +102,7 @@ export const products = [
     category: 'dekor',
     categoryLabel: 'Dekoratif',
     material: 'Şeffaf Reçine',
-    price: 380,
+    price: 300,
     photos: ['/shop/urun-05.jpg', '/shop/urun-04.jpg'],
   },
   {
@@ -112,7 +112,7 @@ export const products = [
     category: 'dekor',
     categoryLabel: 'Dekoratif',
     material: 'Metalik Boyalı',
-    price: 680,
+    price: 540,
     photos: ['/shop/urun-15.jpg'],
   },
   {
@@ -122,7 +122,7 @@ export const products = [
     category: 'dekor',
     categoryLabel: 'Dekoratif',
     material: 'Boyalı Reçine',
-    price: 720,
+    price: 580,
     photos: ['/shop/urun-21.jpg', '/shop/urun-23.jpg'],
   },
   {
@@ -132,7 +132,7 @@ export const products = [
     category: 'figur',
     categoryLabel: 'Film & Oyun',
     material: 'Boyalı Reçine',
-    price: 880,
+    price: 700,
     photos: ['/shop/urun-18.jpg', '/shop/urun-19.jpg'],
   },
   {
@@ -142,7 +142,7 @@ export const products = [
     category: 'figur',
     categoryLabel: 'Film & Oyun',
     material: 'Boyalı Reçine',
-    price: 750,
+    price: 600,
     photos: ['/shop/urun-06.jpg', '/shop/urun-07.jpg'],
   },
   {
@@ -152,7 +152,7 @@ export const products = [
     category: 'figur',
     categoryLabel: 'Film & Oyun',
     material: 'Boyalı Reçine',
-    price: 720,
+    price: 580,
     photos: ['/shop/urun-16.jpg'],
   },
   {
@@ -162,7 +162,7 @@ export const products = [
     category: 'figur',
     categoryLabel: 'Film & Oyun',
     material: 'Boyalı Reçine',
-    price: 560,
+    price: 450,
     photos: ['/shop/urun-20.jpg'],
   },
   {
@@ -172,7 +172,7 @@ export const products = [
     category: 'figur',
     categoryLabel: 'Film & Oyun',
     material: 'Renkli Reçine',
-    price: 420,
+    price: 340,
     photos: ['/shop/urun-12.jpg', '/shop/urun-13.jpg'],
   },
   {
@@ -182,7 +182,7 @@ export const products = [
     category: 'figur',
     categoryLabel: 'Film & Oyun',
     material: 'Renkli Reçine',
-    price: 220,
+    price: 180,
     photos: ['/shop/urun-14.jpg', '/shop/urun-24.jpg'],
   },
   {
@@ -192,7 +192,7 @@ export const products = [
     category: 'set',
     categoryLabel: 'Set & Koleksiyon',
     material: 'Boyalı Reçine',
-    price: 1250,
+    price: 1000,
     photos: ['/shop/urun-11.jpg', '/shop/urun-17.jpg'],
   },
   {
@@ -202,7 +202,7 @@ export const products = [
     category: 'set',
     categoryLabel: 'Set & Koleksiyon',
     material: 'Renkli Reçine',
-    price: 380,
+    price: 300,
     photos: ['/shop/urun-22.jpg'],
   },
   {
@@ -213,7 +213,7 @@ export const products = [
     categoryLabel: 'Kişiye Özel',
     material: 'Boyalı Reçine',
     price: null,
-    priceFrom: 300,
+    priceFrom: 240,
     photos: ['/shop/urun-08.jpg', '/shop/urun-09.jpg'],
   },
 ]
