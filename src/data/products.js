@@ -198,11 +198,11 @@ export const products = [
   {
     id: 'sirinler',
     name: 'Şirinler Seti',
-    desc: '4 Şirin + mantar ev + Gargamel — 6 parça boyalı set.',
+    desc: '7 Şirin + Gargamel + kedi Azman + mantar ev — 10 parça boyalı set.',
     category: 'set',
     categoryLabel: 'Set & Koleksiyon',
     material: 'Boyalı Reçine',
-    price: 1000,
+    price: 1600,
     photos: ['/shop/urun-11.jpg', '/shop/urun-43.jpg', '/shop/urun-17.jpg', '/shop/urun-42.jpg'],
   },
   {
