@@ -186,6 +186,16 @@ export const products = [
     photos: ['/shop/urun-14.jpg', '/shop/urun-24.jpg'],
   },
   {
+    id: 'galatasaray-aslani',
+    name: 'Galatasaray Aslanı',
+    desc: 'GS formalı kaslı aslan maskotu, el boyaması — taraftar hediyeliği.',
+    category: 'figur',
+    categoryLabel: 'Taraftar Figürü',
+    material: 'Boyalı Reçine',
+    price: 450,
+    photos: ['/shop/urun-44.jpg', '/shop/urun-47.jpg', '/shop/urun-46.jpg', '/shop/urun-48.jpg'],
+  },
+  {
     id: 'sirinler',
     name: 'Şirinler Seti',
     desc: '4 Şirin + mantar ev + Gargamel — 6 parça boyalı set.',
@@ -193,7 +203,7 @@ export const products = [
     categoryLabel: 'Set & Koleksiyon',
     material: 'Boyalı Reçine',
     price: 1000,
-    photos: ['/shop/urun-11.jpg', '/shop/urun-17.jpg'],
+    photos: ['/shop/urun-11.jpg', '/shop/urun-43.jpg', '/shop/urun-17.jpg', '/shop/urun-42.jpg'],
   },
   {
     id: 'grogu-ikili',
@@ -208,13 +218,13 @@ export const products = [
   {
     id: 'ozel-figur',
     name: 'Kişiye Özel Figür / Büst',
-    desc: 'Fotoğrafından 3D figür veya büst. Fiyat modele göre değişir.',
+    desc: 'Fotoğrafından el boyamalı 3D portre büst veya figür. Fiyat modele göre değişir.',
     category: 'ozel',
     categoryLabel: 'Kişiye Özel',
     material: 'Boyalı Reçine',
     price: null,
     priceFrom: 240,
-    photos: ['/shop/urun-08.jpg', '/shop/urun-09.jpg'],
+    photos: ['/shop/urun-38.jpg', '/shop/urun-40.jpg', '/shop/urun-39.jpg', '/shop/urun-45.jpg', '/shop/urun-08.jpg'],
   },
 ]
 

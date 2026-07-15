@@ -101,6 +101,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://micronforge.shop/magaza/galatasaray-aslani</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://micronforge.shop/magaza/sirinler</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
