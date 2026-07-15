@@ -192,7 +192,7 @@ export const products = [
     category: 'figur',
     categoryLabel: 'Taraftar Figürü',
     material: 'Boyalı Reçine',
-    price: 450,
+    price: 600,
     photos: ['/shop/urun-44.jpg', '/shop/urun-47.jpg', '/shop/urun-46.jpg', '/shop/urun-48.jpg'],
   },
   {
