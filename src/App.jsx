@@ -6,6 +6,8 @@ import { Analytics } from '@vercel/analytics/react'
 const Home = lazy(() => import('./pages/Home'))
 const ShopPage = lazy(() => import('./pages/ShopPage'))
 const ProductDetail = lazy(() => import('./pages/ProductDetail'))
+const BlogPage = lazy(() => import('./pages/BlogPage'))
+const BlogPost = lazy(() => import('./pages/BlogPost'))
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation()
@@ -24,6 +26,8 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/magaza" element={<ShopPage />} />
           <Route path="/magaza/:slug" element={<ProductDetail />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
         </Routes>
       </Suspense>
       <Analytics />

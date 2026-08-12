@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MicronForge 3D Baskı Rehberi</title>
+    <link>https://micronforge.shop/blog</link>
+    <description>Manisa’da SLA reçine 3D baskı, figür, mimari maket ve endüstriyel prototip yazıları.</description>
+    <language>tr-TR</language>
+    <atom:link href="https://micronforge.shop/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Manisa 3D Baskı Hizmeti: Figürden Sanayi Prototipine Doğru Seçim</title>
+      <link>https://micronforge.shop/blog/manisa-3d-baski-hizmeti-rehberi</link>
+      <guid isPermaLink="true">https://micronforge.shop/blog/manisa-3d-baski-hizmeti-rehberi</guid>
+      <pubDate>Wed, 12 Aug 2026 09:00:00 GMT</pubDate>
+      <description>Figür, mimari maket ya da hassas prototip… Doğru sonuç, önce parçanın nerede kullanılacağını netleştirmekle başlar.</description>
+    </item>
+    <item>
+      <title>Manisa OSB İçin Hassas Prototip: SLA 3D Baskı Nerede Değer Katar?</title>
+      <link>https://micronforge.shop/blog/manisa-osb-hassas-prototip-3d-baski</link>
+      <guid isPermaLink="true">https://micronforge.shop/blog/manisa-osb-hassas-prototip-3d-baski</guid>
+      <pubDate>Wed, 12 Aug 2026 09:00:00 GMT</pubDate>
+      <description>Kalıp ya da seri üretim öncesi küçük geometrileri görmek, ölçüyü kontrol etmek ve sunum numunesi hazırlamak için pratik bir yol.</description>
+    </item>
+    <item>
+      <title>Kırtasiyeler İçin Toptan 3D Baskı Figür ve Kasa Önü Ürün Fikirleri</title>
+      <link>https://micronforge.shop/blog/kirtasiyeler-icin-toptan-3d-baski-figur</link>
+      <guid isPermaLink="true">https://micronforge.shop/blog/kirtasiyeler-icin-toptan-3d-baski-figur</guid>
+      <pubDate>Wed, 12 Aug 2026 09:00:00 GMT</pubDate>
+      <description>Rafı dolduran büyük stok yerine, önce küçük bir ürün grubu ve numune siparişiyle talebi ölçmek daha sağlıklı.</description>
+    </item>
+    <item>
+      <title>Manisa’da Fotoğraftan Kişiye Özel Figür Nasıl Hazırlanır?</title>
+      <link>https://micronforge.shop/blog/manisa-kisiye-ozel-figur-fotograftan-3d-baski</link>
+      <guid isPermaLink="true">https://micronforge.shop/blog/manisa-kisiye-ozel-figur-fotograftan-3d-baski</guid>
+      <pubDate>Wed, 12 Aug 2026 09:00:00 GMT</pubDate>
+      <description>İyi bir kişiye özel figür, yalnızca yüz benzerliği değil; duruşu, kıyafeti ve hikâyeyi taşıyan küçük ayrıntıları da yakalar.</description>
+    </item>
+    <item>
+      <title>Manisa’da Mimari Maket İçin SLA 3D Baskı: Ölçek ve Detay Rehberi</title>
+      <link>https://micronforge.shop/blog/manisa-mimari-maket-sla-3d-baski</link>
+      <guid isPermaLink="true">https://micronforge.shop/blog/manisa-mimari-maket-sla-3d-baski</guid>
+      <pubDate>Wed, 12 Aug 2026 09:00:00 GMT</pubDate>
+      <description>Cephe, pencere, korkuluk ve küçük kent mobilyalarında netlik; doğru ölçek ve baskıya uygun dosyayla başlar.</description>
+    </item>
+    <item>
+      <title>SLA Reçine Baskı mı FDM mi? Figür ve Prototip İçin Net Karşılaştırma</title>
+      <link>https://micronforge.shop/blog/sla-recineli-baski-mi-fdm-mi</link>
+      <guid isPermaLink="true">https://micronforge.shop/blog/sla-recineli-baski-mi-fdm-mi</guid>
+      <pubDate>Wed, 12 Aug 2026 09:00:00 GMT</pubDate>
+      <description>En iyi teknoloji diye tek bir cevap yok: ince yüzey detayı ile büyük ve ekonomik parça aynı üretim kararını istemez.</description>
+    </item>
+  </channel>
+</rss>

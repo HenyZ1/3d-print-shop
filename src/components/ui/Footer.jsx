@@ -3,7 +3,16 @@ import { Printer, Mail, Phone, MapPin, ArrowRight } from 'lucide-react'
 const footerLinks = {
   'Hizmetler': ['DnD / FRP Figür', 'Kişiye Özel', 'Mimari Maket', 'Sanayi Prototip', 'Toplu Sipariş'],
   'Reçine': ['Standart', 'Tough (ABS-like)', 'Renkli', 'Şeffaf', 'Gri / Siyah'],
-  'Destek': ['SSS', 'Fiyat Teklifi', 'Kargo Bilgileri', 'Mağaza', 'Gizlilik'],
+  'Destek': ['SSS', 'Fiyat Teklifi', 'Kargo Bilgileri', 'Mağaza', 'Blog', 'Gizlilik'],
+}
+
+const footerHref = (link) => {
+  if (link === 'Blog') return '/blog'
+  if (link === 'Mağaza') return '/magaza'
+  if (link === 'SSS') return '/#faq'
+  if (link === 'Fiyat Teklifi') return '/#order'
+  if (link === 'Reçine' || link === 'Standart' || link === 'Tough (ABS-like)' || link === 'Renkli' || link === 'Şeffaf' || link === 'Gri / Siyah') return '/#materials'
+  return '/#services'
 }
 
 const InstagramIcon = (p) => (
@@ -93,7 +102,7 @@ export default function Footer() {
               <ul className="flex flex-col gap-3">
                 {links.map((link) => (
                   <li key={link}>
-                    <a href="#" className="text-text-secondary text-sm hover:text-text-primary transition-colors inline-flex items-center gap-1.5 group">
+                    <a href={footerHref(link)} className="text-text-secondary text-sm hover:text-text-primary transition-colors inline-flex items-center gap-1.5 group">
                       <span className="w-0 h-px bg-primary group-hover:w-3 transition-all duration-300" />
                       {link}
                     </a>

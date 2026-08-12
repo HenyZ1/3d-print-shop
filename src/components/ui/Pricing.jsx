@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Check, Sparkles, MessageCircle, Camera } from 'lucide-react'
+import { Check, MessageCircle, Camera } from 'lucide-react'
 
 const tiers = [
   {

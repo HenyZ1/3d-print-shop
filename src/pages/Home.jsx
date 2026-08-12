@@ -6,6 +6,7 @@ import TrustBar from '../components/ui/TrustBar'
 import Services from '../components/ui/Services'
 import Process from '../components/ui/Process'
 import ShopBanner from '../components/ui/ShopBanner'
+import BlogPreview from '../components/ui/BlogPreview'
 import Pricing from '../components/ui/Pricing'
 import Materials from '../components/ui/Materials'
 import Stats from '../components/ui/Stats'
@@ -34,6 +35,7 @@ export default function Home() {
       <Services />
       <Process />
       <ShopBanner />
+      <BlogPreview />
       <Pricing />
       <Materials />
       <Stats />

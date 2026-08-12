@@ -7,6 +7,7 @@ const navLinks = [
   { label: 'Anasayfa', href: '/#hero' },
   { label: 'Hizmetler', href: '/#services' },
   { label: 'Mağaza', href: '/magaza', route: true },
+  { label: 'Blog', href: '/blog', route: true },
   { label: 'Fiyat', href: '/#pricing' },
   { label: 'Reçineler', href: '/#materials' },
   { label: 'SSS', href: '/#faq' },
@@ -17,7 +18,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('hero')
   const location = useLocation()
-  const onShop = location.pathname === '/magaza'
+  const onHome = location.pathname === '/'
 
   useEffect(() => {
     let ticking = false
@@ -35,7 +36,7 @@ export default function Navbar() {
 
   useEffect(() => {
     // Section spy yalnızca ana sayfada anlamlı.
-    if (onShop) return
+    if (!onHome) return
     const ids = navLinks
       .filter((l) => l.href.includes('#'))
       .map((l) => l.href.split('#')[1])
@@ -57,11 +58,13 @@ export default function Navbar() {
     })
 
     return () => observers.forEach((o) => o.disconnect())
-  }, [onShop])
+  }, [onHome])
 
   const isLinkActive = (link) => {
-    if (link.route) return onShop
-    return !onShop && activeSection === link.href.split('#')[1]
+    if (link.route) {
+      return location.pathname === link.href || location.pathname.startsWith(`${link.href}/`)
+    }
+    return onHome && activeSection === link.href.split('#')[1]
   }
 
   const renderLink = (link, className, onClick) =>
@@ -139,6 +142,8 @@ export default function Navbar() {
           <button
             className="lg:hidden p-2 rounded-xl hover:bg-primary/10 transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? 'Menüyü kapat' : 'Menüyü aç'}
+            aria-expanded={mobileOpen}
           >
             {mobileOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
